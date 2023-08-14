@@ -571,18 +571,6 @@ table.dataTable thead>tr>td.sorting_desc_disabled:after {
   border-left: 5px solid #eee;
 }
 
-.wrap-note-content:before {
-  color: #000;
-  font-family: FontAwesome;
-  content: "\f0a1";
-  display: block;
-  font-size: 56px;
-  opacity: 0.15;
-  position: absolute;
-  right: 10px;
-  top: -3rem;
-}
-
 .grid-cols-3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }

@@ -8,6 +8,9 @@ import TabsHomeContent from './tabcontent/TabsHomeContent';
 import TabsTaskContent from './tabcontent/TabsTaskContent';
 import TabsOfferContent from './tabcontent/TabsOfferContent';
 import TabsChallengesContent from './tabcontent/TabsChallengesContent';
+import TabsPartnerContent from './tabcontent/TabsPartnerContent';
+import TabsEsharesContent from './tabcontent/TabsEsharesContent';
+import TabsTeamContent from './tabcontent/TabsTeamContent';
 
 const TabsSection = () => {
   return (
@@ -65,13 +68,13 @@ const TabsSection = () => {
               <TabsChallengesContent/>
             </Tab.Pane>
             <Tab.Pane eventKey="partners">
-              1
+              <TabsPartnerContent/>
             </Tab.Pane>
             <Tab.Pane eventKey="eshares">
-              2
+              <TabsEsharesContent />
             </Tab.Pane>
             <Tab.Pane eventKey="team">
-              3
+              <TabsTeamContent />
             </Tab.Pane>
           </Tab.Content>
         </Col>
