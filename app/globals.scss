@@ -30,6 +30,87 @@ h6,
   font-weight: 500;
 }
 
+/* Custom Navbar
+-------------------------- */
+.navbar-brand {
+  font-weight: 600 !important;
+  font-size: 2rem !important;
+}
+
+
+
+@media (min-width:1024px) {
+  .navbar-floating-scroll.scrolled .container {
+    margin-top: 0.5rem;
+    background-color: #fff;
+    box-shadow: 0 4px 40px rgb(0 0 0 / 9%);
+    border-radius: 50px;
+    padding: 1rem 2rem;
+  }
+
+  .navbar-floating-scroll .nav-link{
+    font-weight: 600;
+    color: #706e6e;
+  }
+
+  .navbar-floating-scroll.scrolled {
+    background-color: transparent !important;
+    animation: slide-in--down 420ms cubic-bezier(.165, .84, .44, 1);
+    position: fixed;
+    top: 0;
+    z-index: 1030;
+    width: 100%
+  }
+
+  .slide-in--down {
+    -webkit-animation-name: slide-in--down;
+    animation-name: slide-in--down
+  }
+
+  @keyframes slide-in--down {
+    0% {
+      transform: translateY(-100%)
+    }
+
+    100% {
+      transform: translateY(0)
+    }
+  }
+
+  .nav-link {
+    color: #000 !important
+  }
+
+  .nav-link:hover {
+    color: rgba(0, 0, 0, .55) !important
+  }
+
+  .link-outline {
+    border: 1px solid #212529 !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    margin-right: .5rem
+  }
+
+  .link-outline:hover {
+    opacity: .8
+  }
+
+  .link-btn {
+    background-color: #212529 !important;
+    border: 1px solid #212529 !important;
+    color: #fff !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important
+  }
+
+  .link-btn:hover {
+    opacity: .8;
+    color: #fff !important
+  }
+
+}
+
 // Custom Signup Form
 .custom-form-signup {
   display: flex;
@@ -70,7 +151,7 @@ h6,
   }
   &.nav-tabs .nav-link{
     border-radius: 0;
-    color: #a9a9a9;
+    color: #a9a9a9 !important;
     padding: 1rem;
     border: none;
 
@@ -82,7 +163,7 @@ h6,
 
     &.active {
       background-color: #0D6EFD;
-      color: #fff;
+      color: #fff !important;
     }
   }
 }

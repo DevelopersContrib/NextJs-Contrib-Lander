@@ -1,8 +1,10 @@
 import TabsSection from "@/components/home/TabsSection"
 import Footer from "@/components/includes/Footer"
+import Navigation from "@/components/includes/Navigation"
 export default function Home() {
   return (
     <>
+      <Navigation />
       <section className="tw-py-20">
         <div className="container">
           <div className="row">
