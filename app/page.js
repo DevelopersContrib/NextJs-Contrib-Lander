@@ -1,9 +1,16 @@
 import TabsSection from "@/components/home/TabsSection"
+import HeaderWidget from "@/components/includes/HeaderWidget"
 import Footer from "@/components/includes/Footer"
 import Navigation from "@/components/includes/Navigation"
-export default function Home() {
+import { getDomain,getData } from '@/lib/data';
+
+export default async function() {
+  const c = await getData();
+  const domain = getDomain();
+
   return (
     <>
+      <HeaderWidget piwikId={c.data.piwikId} accountGA={c.data.accountGA} adsenseClientId={c.data.adsenseClientId}  />
       <Navigation />
       <section className="tw-py-20">
         <div className="container">
