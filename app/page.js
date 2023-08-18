@@ -11,13 +11,13 @@ export default async function() {
   return (
     <>
       <HeaderWidget piwikId={c.data.piwikId} accountGA={c.data.accountGA} adsenseClientId={c.data.adsenseClientId}  />
-      <Navigation />
+      <Navigation  domain={domain} logo={c.data.logo} />
       <section className="tw-py-20">
         <div className="container">
           <div className="row">
             <div className="col-xl-12">
               <h1 className="mb-5 text-center">
-                Join a vibrant community of developers, influencers, and entrepreneurs on virtualcomm.com, all using the versatile CONTRIB token to power their token economies!
+                Join a vibrant community of developers, influencers, and entrepreneurs on {domain}, all using the versatile CONTRIB token to power their token economies!
               </h1>
             </div>
             <div className="col-xl-12 mb-5">
@@ -29,7 +29,7 @@ export default async function() {
                   className="form-control"
                   placeholder="Enter your email addresss..." />
                 <button className="btn btn-dark">
-                  Join Virtualcomm.com
+                  Join {domain}
                 </button>
               </div>
             </div>
