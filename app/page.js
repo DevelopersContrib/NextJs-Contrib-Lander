@@ -3,7 +3,19 @@ import HeaderWidget from "@/components/includes/HeaderWidget"
 import Footer from "@/components/includes/Footer"
 import Navigation from "@/components/includes/Navigation"
 import StatSection from "@/components/home/component/StatSection"
-import { getDomain,getData, getStatus, getFeaturedTasks, getPeople } from '@/lib/data';
+import { 
+  getDomain,
+  getData, 
+  getStatus, 
+  getFeaturedTasks, 
+  getPeople, 
+  getChallenges, 
+  getContributors, 
+  getEserviceCats,
+  getTaskByStatus,
+  getPartners,
+  getTeam
+} from '@/lib/data';
 
 export default async function() {
   const c = await getData();
@@ -11,6 +23,15 @@ export default async function() {
   const domain = getDomain();
   const featuredTask = await getFeaturedTasks();
   const peopleList = await getPeople();
+  const challengeList = await getChallenges();
+  const contributorList = await getContributors();
+  const getCategories = await getEserviceCats();
+  const getOpentTasks = await getTaskByStatus('open');
+  const getProdTasks = await getTaskByStatus('in-production');
+  const getVerificationTasks = await getTaskByStatus('for-verification');
+  const getCompletedTasks = await getTaskByStatus('completed');
+  const partnerList = await getPartners();
+  const teamList = await getTeam();
 
   return (
     <>
@@ -44,6 +65,15 @@ export default async function() {
               domain={domain}
               featuredTask={featuredTask}
               peopleList={peopleList}
+              getChallenges={challengeList}
+              contributorList={contributorList}
+              getCategories={getCategories}
+              getOpentTasks={getOpentTasks}
+              getVerificationTasks={getVerificationTasks}
+              getProdTasks={getProdTasks}
+              getCompletedTasks={getCompletedTasks}
+              partnerList={partnerList}
+              teamList={teamList}
               />
             </div>
           </div>

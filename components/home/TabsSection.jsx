@@ -12,7 +12,20 @@ import TabsPartnerContent from './tabcontent/TabsPartnerContent';
 import TabsEsharesContent from './tabcontent/TabsEsharesContent';
 import TabsTeamContent from './tabcontent/TabsTeamContent';
 
-const TabsSection = ({domain,featuredTask,peopleList}) => {
+const TabsSection = ({
+  domain,
+  featuredTask,
+  peopleList, 
+  getChallenges,
+  contributorList, 
+  getCategories,
+  getOpentTasks,
+  getVerificationTasks,
+  getProdTasks,
+  getCompletedTasks,
+  partnerList,
+  teamList
+}) => {
   return (
     <Tab.Container id="tabs-contrib-lander" defaultActiveKey="home">
       <Row>
@@ -56,25 +69,37 @@ const TabsSection = ({domain,featuredTask,peopleList}) => {
         <Col xl={12}>
           <Tab.Content>
             <Tab.Pane eventKey="home">
-              <TabsHomeContent featuredTask={featuredTask} peopleList={peopleList}/>
+              <TabsHomeContent 
+              featuredTask={featuredTask} 
+              peopleList={peopleList}
+              getChallenges={getChallenges}
+              contributorList={contributorList}
+              />
             </Tab.Pane>
             <Tab.Pane eventKey="tasks">
-              <TabsTaskContent/>
+              <TabsTaskContent
+              domain={domain} 
+              getCategories={getCategories}
+              getOpentTasks={getOpentTasks}
+              getProdTasks={getProdTasks}
+              getVerificationTasks={getVerificationTasks}
+              getCompletedTasks={getCompletedTasks}
+              />
             </Tab.Pane>
             <Tab.Pane eventKey="offers">
               <TabsOfferContent/>
             </Tab.Pane>
             <Tab.Pane eventKey="challenges">
-              <TabsChallengesContent/>
+              <TabsChallengesContent domain={domain} getCategories={getCategories}/>
             </Tab.Pane>
             <Tab.Pane eventKey="partners">
-              <TabsPartnerContent/>
+              <TabsPartnerContent domain={domain} partnerList={partnerList} />
             </Tab.Pane>
             <Tab.Pane eventKey="eshares">
               <TabsEsharesContent />
             </Tab.Pane>
-            <Tab.Pane eventKey="team">
-              <TabsTeamContent />
+            <Tab.Pane eventKey="team" >
+              <TabsTeamContent teamList={teamList} domain={domain}/>
             </Tab.Pane>
           </Tab.Content>
         </Col>

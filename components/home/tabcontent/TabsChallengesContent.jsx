@@ -2,7 +2,7 @@ import React from 'react'
 import TasksComponent from '../component/TasksComponent'
 import { FaLayerGroup } from "react-icons/fa6";
 
-const TabsChallengesContent = () => {
+const TabsChallengesContent = ({getCategories, domain}) => {
   return (
     <>
       <div className="col-lg-12">
@@ -24,7 +24,7 @@ const TabsChallengesContent = () => {
           </div>
         </div>
       </div>
-      <TasksComponent />
+      <TasksComponent getCategories={getCategories} domain={domain}/>
     </>
   )
 }
