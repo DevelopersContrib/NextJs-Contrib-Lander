@@ -12,7 +12,7 @@ import TabsPartnerContent from './tabcontent/TabsPartnerContent';
 import TabsEsharesContent from './tabcontent/TabsEsharesContent';
 import TabsTeamContent from './tabcontent/TabsTeamContent';
 
-const TabsSection = () => {
+const TabsSection = ({domain,featuredTask,peopleList}) => {
   return (
     <Tab.Container id="tabs-contrib-lander" defaultActiveKey="home">
       <Row>
@@ -20,7 +20,7 @@ const TabsSection = () => {
           <Nav variant="tabs" className='custom-nav-framework'>
             <Nav.Item>
               <Nav.Link eventKey="home">
-                <span className='text-capitalize me-2'>virtualcomm.com</span>
+                <span className='text-capitalize me-2'>{domain}</span>
                 Home
               </Nav.Link>
             </Nav.Item>
@@ -28,10 +28,10 @@ const TabsSection = () => {
               <Nav.Link eventKey="tasks">Task</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link href='#' target='_blank'>Contribution</Nav.Link>
+              <Nav.Link href={'https://www.contrib.com/to/'+domain} >Contribution</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link href="#" target='_blank'>Invite</Nav.Link>
+              <Nav.Link href="https://www.contrib.com/crypto/referral" >Invite</Nav.Link>
             </Nav.Item>
             <Nav.Item>
               <Nav.Link eventKey="offers">Offers</Nav.Link>
@@ -49,14 +49,14 @@ const TabsSection = () => {
               <Nav.Link eventKey="team">Team</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link href='#'>RealtyDao Gov</Nav.Link>
+              <Nav.Link href='https://realtydao.com/gov'>RealtyDao Gov</Nav.Link>
             </Nav.Item>
           </Nav>
         </Col>
         <Col xl={12}>
           <Tab.Content>
             <Tab.Pane eventKey="home">
-              <TabsHomeContent />
+              <TabsHomeContent featuredTask={featuredTask} peopleList={peopleList}/>
             </Tab.Pane>
             <Tab.Pane eventKey="tasks">
               <TabsTaskContent/>

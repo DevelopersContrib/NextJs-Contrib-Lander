@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { FaCheckToSlot, FaUser, FaRankingStar, FaUserPlus } from "react-icons/fa6";
 
-const TabsHomeContent = () => {
+const TabsHomeContent = ({featuredTask,peopleList}) => {
   return (
     <div className="row">
       <div className="col-lg-6">
@@ -26,94 +26,30 @@ const TabsHomeContent = () => {
           </div>
           <div className="m-portlet__body m-scroller--widget">
             <div className="m-scroller-content" id="featureprojectscontainer">
-              <a href="https://www.contrib.com/crypto/tasks/details/virtualcomm-com---create-a-linkedin-company-page-for-this-site/50035" className="list-items-link" target="_blank">
-                <div className="me-3 flex flex-col content-center items-center w-icon-left">
-                  <div className="crypto-currency-num h4 my-0 tw-bg-[transparent_!important] font-600 tw-h-[20px]"> EARN </div>
-                  <div>
-                    <Image className="img-user-contributor rounded-circle object-contain" width={55} height={55} src="https://s3.amazonaws.com/assets.zipsite.net/images/jayson/icons/currency-ctb-4.png" alt="" />
+              {featuredTask.data.map((featuredTasks) => (
+                <a href={featuredTasks.link} className="list-items-link" target="_blank" key={featuredTasks.link}>
+                  <div className="me-3 flex flex-col content-center items-center w-icon-left">
+                    <div className="crypto-currency-num h4 my-0 tw-bg-[transparent_!important] font-600 tw-h-[20px]"> EARN </div>
+                    <div>
+                      <Image className="img-user-contributor rounded-circle object-contain" width={55} height={55} src={featuredTasks.icon} alt="" />
+                    </div>
+                    <div className="crypto-currency-num py-1 mt-1 font-600"> {featuredTasks.amount} </div>
                   </div>
-                  <div className="crypto-currency-num py-1 mt-1 font-600"> 48.54 </div>
-                </div>
-                <div className="flex flex-col content-center">
-                  <h4 className="text-capitalize mt-0 mb-1 title-list-item"> Virtualcomm.com </h4>
-                  <p className="mb-3 desc-list-item tw-min-h-[40px]"> Task Description - Create a Linkedin Company Page for this site. </p>
-                  <ul className="list-inline mb-0 list-li-left">
-                    <li className="list-inline-item">
-                      <div className="px-3 py-1 d-inline text-capitalize b-pill tw-bg-[#F1FAFF] tw-text-[#009EF7] tw-font-normal"> Social Signup </div>
-                    </li>
-                    <li className="list-inline-item">
-                      <div className="px-3 py-1 d-inline text-capitalize b-pill tw-bg-[#F1FAFF] tw-text-[#009EF7] tw-font-normal"> earn <span className="text-uppercase">CTB</span>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </a>
-              <a href="https://www.contrib.com/crypto/tasks/details/virtualcomm-com---create-a-linkedin-company-page-for-this-site/50035" className="list-items-link" target="_blank">
-                <div className="me-3 flex flex-col content-center items-center w-icon-left">
-                  <div className="crypto-currency-num h4 my-0 tw-bg-[transparent_!important] font-600 tw-h-[20px]"> EARN </div>
-                  <div>
-                    <Image className="img-user-contributor rounded-circle object-contain" width={55} height={55} src="https://s3.amazonaws.com/assets.zipsite.net/images/jayson/icons/currency-ctb-4.png" alt="" />
+                  <div className="flex flex-col content-center">
+                    <h4 className="text-capitalize mt-0 mb-1 title-list-item"> {featuredTasks.title} </h4>
+                    <p className="mb-3 desc-list-item tw-min-h-[40px]"> {featuredTasks.description} </p>
+                    <ul className="list-inline mb-0 list-li-left">
+                      <li className="list-inline-item">
+                        <div className="px-3 py-1 d-inline text-capitalize b-pill tw-bg-[#F1FAFF] tw-text-[#009EF7] tw-font-normal"> {featuredTasks.category_name} </div>
+                      </li>
+                      <li className="list-inline-item">
+                        <div className="px-3 py-1 d-inline text-capitalize b-pill tw-bg-[#F1FAFF] tw-text-[#009EF7] tw-font-normal"> earn <span className="text-uppercase">{featuredTasks.currency}</span>
+                        </div>
+                      </li>
+                    </ul>
                   </div>
-                  <div className="crypto-currency-num py-1 mt-1 font-600"> 48.54 </div>
-                </div>
-                <div className="flex flex-col content-center">
-                  <h4 className="text-capitalize mt-0 mb-1 title-list-item"> Virtualcomm.com </h4>
-                  <p className="mb-3 desc-list-item tw-min-h-[40px]"> Task Description - Create a Linkedin Company Page for this site. </p>
-                  <ul className="list-inline mb-0 list-li-left">
-                    <li className="list-inline-item">
-                      <div className="px-3 py-1 d-inline text-capitalize b-pill tw-bg-[#F1FAFF] tw-text-[#009EF7] tw-font-normal"> Social Signup </div>
-                    </li>
-                    <li className="list-inline-item">
-                      <div className="px-3 py-1 d-inline text-capitalize b-pill tw-bg-[#F1FAFF] tw-text-[#009EF7] tw-font-normal"> earn <span className="text-uppercase">CTB</span>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </a>
-              <a href="https://www.contrib.com/crypto/tasks/details/virtualcomm-com---create-a-linkedin-company-page-for-this-site/50035" className="list-items-link" target="_blank">
-                <div className="me-3 flex flex-col content-center items-center w-icon-left">
-                  <div className="crypto-currency-num h4 my-0 tw-bg-[transparent_!important] font-600 tw-h-[20px]"> EARN </div>
-                  <div>
-                    <Image className="img-user-contributor rounded-circle object-contain" width={55} height={55} src="https://s3.amazonaws.com/assets.zipsite.net/images/jayson/icons/currency-ctb-4.png" alt="" />
-                  </div>
-                  <div className="crypto-currency-num py-1 mt-1 font-600"> 48.54 </div>
-                </div>
-                <div className="flex flex-col content-center">
-                  <h4 className="text-capitalize mt-0 mb-1 title-list-item"> Virtualcomm.com </h4>
-                  <p className="mb-3 desc-list-item tw-min-h-[40px]"> Task Description - Create a Linkedin Company Page for this site. </p>
-                  <ul className="list-inline mb-0 list-li-left">
-                    <li className="list-inline-item">
-                      <div className="px-3 py-1 d-inline text-capitalize b-pill tw-bg-[#F1FAFF] tw-text-[#009EF7] tw-font-normal"> Social Signup </div>
-                    </li>
-                    <li className="list-inline-item">
-                      <div className="px-3 py-1 d-inline text-capitalize b-pill tw-bg-[#F1FAFF] tw-text-[#009EF7] tw-font-normal"> earn <span className="text-uppercase">CTB</span>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </a>
-              <a href="https://www.contrib.com/crypto/tasks/details/virtualcomm-com---create-a-linkedin-company-page-for-this-site/50035" className="list-items-link" target="_blank">
-                <div className="me-3 flex flex-col content-center items-center w-icon-left">
-                  <div className="crypto-currency-num h4 my-0 tw-bg-[transparent_!important] font-600 tw-h-[20px]"> EARN </div>
-                  <div>
-                    <Image className="img-user-contributor rounded-circle object-contain" width={55} height={55} src="https://s3.amazonaws.com/assets.zipsite.net/images/jayson/icons/currency-ctb-4.png" alt="" />
-                  </div>
-                  <div className="crypto-currency-num py-1 mt-1 font-600"> 48.54 </div>
-                </div>
-                <div className="flex flex-col content-center">
-                  <h4 className="text-capitalize mt-0 mb-1 title-list-item"> Virtualcomm.com </h4>
-                  <p className="mb-3 desc-list-item tw-min-h-[40px]"> Task Description - Create a Linkedin Company Page for this site. </p>
-                  <ul className="list-inline mb-0 list-li-left">
-                    <li className="list-inline-item">
-                      <div className="px-3 py-1 d-inline text-capitalize b-pill tw-bg-[#F1FAFF] tw-text-[#009EF7] tw-font-normal"> Social Signup </div>
-                    </li>
-                    <li className="list-inline-item">
-                      <div className="px-3 py-1 d-inline text-capitalize b-pill tw-bg-[#F1FAFF] tw-text-[#009EF7] tw-font-normal"> earn <span className="text-uppercase">CTB</span>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </a>
+                </a>
+               ))}
             </div>
           </div>
         </div>

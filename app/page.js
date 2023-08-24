@@ -2,11 +2,15 @@ import TabsSection from "@/components/home/TabsSection"
 import HeaderWidget from "@/components/includes/HeaderWidget"
 import Footer from "@/components/includes/Footer"
 import Navigation from "@/components/includes/Navigation"
-import { getDomain,getData } from '@/lib/data';
+import StatSection from "@/components/home/component/StatSection"
+import { getDomain,getData, getStatus, getFeaturedTasks, getPeople } from '@/lib/data';
 
 export default async function() {
   const c = await getData();
+  const status = await getStatus();
   const domain = getDomain();
+  const featuredTask = await getFeaturedTasks();
+  const peopleList = await getPeople();
 
   return (
     <>
@@ -33,36 +37,14 @@ export default async function() {
                 </button>
               </div>
             </div>
+            <StatSection domainStats={status}/>
+            
             <div className="col-xl-12">
-              <div className="row g-3">
-                <div className="col-lg-3 mb-3">
-                  <div className="bg-white box-widget-shadow px-3 py-5 d-flex w-100 flex-column align-items-center">
-                    <h3 className="tw-font-bold" id="c_theo_val">22,671</h3>
-                    <div className="text-uppercase">TV</div>
-                  </div>
-                </div>
-                <div className="col-lg-3 mb-3">
-                  <div className="bg-white box-widget-shadow px-3 py-5 d-flex w-100 flex-column align-items-center">
-                    <h3 className="tw-font-bold" id="c_contributors">9</h3>
-                    <div className="text-uppercase">contributors</div>
-                  </div>
-                </div>
-                <div className="col-lg-3 mb-3">
-                  <div className="bg-white box-widget-shadow px-3 py-5 d-flex w-100 flex-column align-items-center">
-                    <h3 className="tw-font-bold" id="c_eshares">40</h3>
-                    <div className="text-uppercase">eshares</div>
-                  </div>
-                </div>
-                <div className="col-lg-3 mb-3">
-                  <div className="bg-white box-widget-shadow px-3 py-5 d-flex w-100 flex-column align-items-center">
-                    <h3 className="tw-font-bold" id="c_tasks">0</h3>
-                    <div className="text-uppercase">open task</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-12">
-              <TabsSection/>
+              <TabsSection 
+              domain={domain}
+              featuredTask={featuredTask}
+              peopleList={peopleList}
+              />
             </div>
           </div>
         </div>
