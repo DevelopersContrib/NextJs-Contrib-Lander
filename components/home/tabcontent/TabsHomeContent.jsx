@@ -135,8 +135,8 @@ const TabsHomeContent = ({featuredTask,peopleList,getChallenges,contributorList}
           <div className="tg-number-brand-details text-uppercase">Contributors</div>
           <ul className="list-inline list-contributors-bd" id="brand_top_contributors">
             {contributorList.data.map((contributorLists) => (
-            <li className="list-inline-item">
-              <a href={contributorLists.link} className="d-block" target="_blank" key={contributorLists.link}>
+            <li className="list-inline-item" key={contributorLists.link}>
+              <a href={contributorLists.link} className="d-block" target="_blank" >
                 <Image width={40} height={40} className="bd-contributor-img rounded-circle" src={contributorLists.image} alt={contributorLists.name} />
               </a>
             </li>

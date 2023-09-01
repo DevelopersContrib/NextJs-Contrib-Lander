@@ -7,10 +7,11 @@ import Tab from 'react-bootstrap/Tab';
 import TabsHomeContent from './tabcontent/TabsHomeContent';
 import TabsTaskContent from './tabcontent/TabsTaskContent';
 import TabsOfferContent from './tabcontent/TabsOfferContent';
-import TabsChallengesContent from './tabcontent/TabsChallengesContent';
 import TabsPartnerContent from './tabcontent/TabsPartnerContent';
 import TabsEsharesContent from './tabcontent/TabsEsharesContent';
 import TabsTeamContent from './tabcontent/TabsTeamContent';
+import dynamic from 'next/dynamic';
+const TabsChallengesContent = dynamic(() => import('./tabcontent/TabsChallengesContent'), { ssr: false });
 
 const TabsSection = ({
   domain,
@@ -24,7 +25,8 @@ const TabsSection = ({
   getProdTasks,
   getCompletedTasks,
   partnerList,
-  teamList
+  teamList,
+  brandChallenges
 }) => {
   return (
     <Tab.Container id="tabs-contrib-lander" defaultActiveKey="home">
@@ -90,7 +92,7 @@ const TabsSection = ({
               <TabsOfferContent/>
             </Tab.Pane>
             <Tab.Pane eventKey="challenges">
-              <TabsChallengesContent domain={domain} getCategories={getCategories}/>
+              <TabsChallengesContent domain={domain} getCategories={getCategories} brandChallenges={brandChallenges}/>
             </Tab.Pane>
             <Tab.Pane eventKey="partners">
               <TabsPartnerContent domain={domain} partnerList={partnerList} />

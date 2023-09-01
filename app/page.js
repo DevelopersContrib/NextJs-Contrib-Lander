@@ -14,10 +14,11 @@ import {
   getEserviceCats,
   getTaskByStatus,
   getPartners,
-  getTeam
+  getTeam,
+  getBrandChallenges
 } from '@/lib/data';
 
-export default async function() {
+export default async function Home() {
   const c = await getData();
   const status = await getStatus();
   const domain = getDomain();
@@ -32,12 +33,13 @@ export default async function() {
   const getCompletedTasks = await getTaskByStatus('completed');
   const partnerList = await getPartners();
   const teamList = await getTeam();
+  const brandChallenges = await getBrandChallenges();
 
   return (
     <>
       <HeaderWidget piwikId={c.data.piwikId} accountGA={c.data.accountGA} adsenseClientId={c.data.adsenseClientId}  />
       <Navigation  domain={domain} logo={c.data.logo} />
-      <section className="tw-py-20">
+      <div className="tw-py-20">
         <div className="container">
           <div className="row">
             <div className="col-xl-12">
@@ -74,11 +76,12 @@ export default async function() {
               getCompletedTasks={getCompletedTasks}
               partnerList={partnerList}
               teamList={teamList}
+              brandChallenges={brandChallenges}
               />
             </div>
           </div>
         </div>
-      </section>
+      </div>
       <Footer />
     </>
   )

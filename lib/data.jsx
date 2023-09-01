@@ -57,6 +57,19 @@ export async function getTeam() {
     return res.json();
 }
 
+
+export async function getBrandChallenges() {
+    const domain = getDomain();
+    const url = process.env.GET_BRAND_CHALLENGES+`&domain=${domain}`
+    const res = await fetch(url);
+    if (!res.ok){
+        // This will activate the closest `error.js` Error Boundary
+        throw new Error("Failed to fetch data");
+    }
+
+    return res.json();
+}
+
 export async function getEserviceCats() {
     const domain = getDomain();
     const url = process.env.GET_ESERVICES_CATEGORIES+`&domain=${domain}`
