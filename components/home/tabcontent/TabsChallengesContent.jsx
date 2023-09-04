@@ -28,7 +28,7 @@ function TabsChallengesContent({ getCategories, domain, brandChallenges }) {
     {
       name: 'Action',
       cell: row => (
-        <a href={`https://www.contrib.com/challenge/details/${row.ChallengeId}/${row.Slug}`} target="_blank" class="btn btn-sm btn-primary">View</a>
+        <a href={`https://www.contrib.com/challenge/details/${row.ChallengeId}/${row.Slug}`} target="_blank" className="btn btn-sm btn-primary">View</a>
       ),
     },
   ];
