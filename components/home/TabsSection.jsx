@@ -26,8 +26,11 @@ const TabsSection = ({
   getCompletedTasks,
   partnerList,
   teamList,
-  brandChallenges
+  brandChallenges,
+  earnings,
+  analytics
 }) => {
+  
   return (
     <Tab.Container id="tabs-contrib-lander" defaultActiveKey="home">
       <Row>
@@ -98,7 +101,10 @@ const TabsSection = ({
               <TabsPartnerContent domain={domain} partnerList={partnerList} />
             </Tab.Pane>
             <Tab.Pane eventKey="eshares">
-              <TabsEsharesContent />
+              <TabsEsharesContent 
+                earnings={earnings}
+                analytics={analytics}
+              />
             </Tab.Pane>
             <Tab.Pane eventKey="team" >
               <TabsTeamContent teamList={teamList} domain={domain}/>

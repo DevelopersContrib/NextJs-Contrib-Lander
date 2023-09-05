@@ -2,7 +2,8 @@
 import { FaSquarePollVertical, FaChartLine } from "react-icons/fa6"
 import { useEffect } from "react"
 import Chart from 'chart.js/auto';
-const TabsEsharesContent = () => {
+const TabsEsharesContent = ({earnings,analytics}) => {
+ 
   useEffect(() => {
     var ctx = document.getElementById('myChart');
     var myChart = new Chart(ctx, {
@@ -16,11 +17,7 @@ const TabsEsharesContent = () => {
         datasets: [{
           label: 'My First Dataset',
           data: [300, 50, 100],
-          backgroundColor: [
-            'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)',
-            'rgb(255, 205, 86)'
-          ],
+         
           hoverOffset: 4
         }]
       }
@@ -43,29 +40,31 @@ const TabsEsharesContent = () => {
             </div>
             <div className="m-portlet__body">
               <div className="relative preloader-notch" id="brand_analytics_content">
-                <ul className="list-group tw-w-full">
-                  <li className="list-group-item">
-                    <span className="float-end font-800">0</span> Total Visitors
-                  </li>
-                  <li className="list-group-item">
-                    <span className="float-end font-800">0</span> Unique Visitors
-                  </li>
-                  <li className="list-group-item">
-                    <span className="float-end font-800">0</span> Page Views
-                  </li>
-                  <li className="list-group-item">
-                    <span className="float-end font-800">0</span> Ave. Time on Site(secs):
-                  </li>
-                  <li className="list-group-item">
-                    <span className="float-end font-800">0</span> Pages/Visit:
-                  </li>
-                  <li className="list-group-item">
-                    <span className="float-end font-800">0%</span> Bounce Rate:
-                  </li>
-                  <li className="list-group-item">
-                    <span className="float-end font-800">0%</span> % New Visits:
-                  </li>
-                </ul>
+                {analytics.data.map((analytic) => (
+                  <ul className="list-group tw-w-full" key={analytic.has_analytics}>
+                    <li className="list-group-item">
+                      <span className="float-end font-800">{analytic.result7_0}</span> Total Visitors
+                    </li>
+                    <li className="list-group-item">
+                      <span className="float-end font-800">{analytic.result7_1}</span> Unique Visitors
+                    </li>
+                    <li className="list-group-item">
+                      <span className="float-end font-800">{analytic.result7_2}</span> Page Views
+                    </li>
+                    <li className="list-group-item">
+                      <span className="float-end font-800">{analytic.result7_3}</span> Ave. Time on Site(secs):
+                    </li>
+                    <li className="list-group-item">
+                      <span className="float-end font-800">{analytic.result7_4}</span> Pages/Visit:
+                    </li>
+                    <li className="list-group-item">
+                      <span className="float-end font-800">{analytic.result7_5}%</span> Bounce Rate:
+                    </li>
+                    <li className="list-group-item">
+                      <span className="float-end font-800">{analytic.result7_6}%</span> % New Visits:
+                    </li>
+                  </ul>
+                ))}
               </div>
             </div>
           </div>
@@ -84,11 +83,13 @@ const TabsEsharesContent = () => {
             </div>
             <div className="m-portlet__body">
               <div className="relative preloader-notch" id="brand_earnings_content">
-                <ul className="list-group tw-w-full tw-min-h-[260px]">
-                  <li className="list-group-item">
-                    <span className="float-end font-800">11</span> Community
-                  </li>
-                </ul>
+                {earnings.data.map((earning) => (
+                  <ul className="list-group tw-w-full tw-min-h-[260px]" key={earning.referralearnings}>
+                    <li className="list-group-item">
+                      <span className="float-end font-800">{earning.leads}</span> Community
+                    </li>
+                  </ul>
+                ))}
               </div>
             </div>
           </div>

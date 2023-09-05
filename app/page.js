@@ -15,7 +15,9 @@ import {
   getTaskByStatus,
   getPartners,
   getTeam,
-  getBrandChallenges
+  getBrandChallenges,
+  getBrandEarnings,
+  getAnalytics
 } from '@/lib/data';
 
 export default async function Home() {
@@ -34,6 +36,8 @@ export default async function Home() {
   const partnerList = await getPartners();
   const teamList = await getTeam();
   const brandChallenges = await getBrandChallenges();
+  const earnings = await getBrandEarnings();
+  const analytics = await getAnalytics();
 
   return (
     <>
@@ -77,6 +81,8 @@ export default async function Home() {
               partnerList={partnerList}
               teamList={teamList}
               brandChallenges={brandChallenges}
+              earnings={earnings}
+              analytics={analytics}
               />
             </div>
           </div>

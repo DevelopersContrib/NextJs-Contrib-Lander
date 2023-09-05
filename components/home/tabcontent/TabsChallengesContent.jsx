@@ -34,7 +34,7 @@ function TabsChallengesContent({ getCategories, domain, brandChallenges }) {
   ];
 
   const initialData = brandChallenges.data.challenges;
-  console.log(initialData);
+  
 
   const [searchText, setSearchText] = useState('');
   const [data, setData] = useState(initialData);
