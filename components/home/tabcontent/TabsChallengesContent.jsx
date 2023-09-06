@@ -1,7 +1,9 @@
+"use client"
 import React, { useState } from 'react';
 import { FaLayerGroup } from 'react-icons/fa6';
-import DataTable from "react-data-table-component";
 import TasksComponent from '../component/TasksComponent';
+import DataTable from 'datatables.net-dt';
+import { useEffect } from "react"
 import Paper from "@mui/material/Paper";
 
 function TabsChallengesContent({ getCategories, domain, brandChallenges }) {
@@ -42,6 +44,47 @@ function TabsChallengesContent({ getCategories, domain, brandChallenges }) {
   const filteredData = data.filter(item =>
     item.ChallengeTitle.toLowerCase().includes(searchText.toLowerCase())
   );
+  useEffect(() => {
+  let table = new DataTable('#tbl-challenges', {
+    "order": [[0, "desc"]],
+      "columnDefs": [
+      {  "searchable": false,
+          "visible": false,
+          "targets": 0 
+      },
+      {
+        "render": function ( data, type, row ) {
+          var id = row[0];
+          var title = data;
+          var slug = row[3];
+          return '<a href="https://www.contrib.com/challenge/details/'+id+'/'+slug+'" target="_blank" class="text-decoration-none">'+title+'</a>';
+        },
+       
+        "targets": 1
+      },
+      
+      {
+        
+        "targets": 2
+      },        
+      {  
+        "render": function ( data, type, row ) {
+          var id = row[0];
+        
+          var slug = data;
+          return '<a href="https://www.contrib.com/challenge/details/'+id+'/'+slug+'" target="_blank" class="btn btn-sm btn-primary">View</a>';
+        },
+
+        "searchable": false,
+        "targets":  3  
+
+      },    
+      ],       
+      "processing": true,
+      "serverSide": true,
+      "ajax":"https://www.contrib.com/brand/getchallengesbrand"
+  });
+}, [])
 
   return (
     <div className="classmain">
@@ -60,22 +103,20 @@ function TabsChallengesContent({ getCategories, domain, brandChallenges }) {
             </div>
           </div>
           <div className="m-portlet__body">
-            <div className="input-search">
-              <input
-                type="text"
-                placeholder="Search by title..."
-                value={searchText}
-                onChange={e => setSearchText(e.target.value)}
-                className="border rounded px-3 py-1"
-              />
-            </div>
-            <Paper>
-              <DataTable
-                columns={columns}
-                data={filteredData}
-                pagination
-              />
-            </Paper>
+              <table  id="tbl-challenges" className="table table-striped table-minimal-striped">
+                <thead>
+                  <tr>
+                    <th> Id</th>
+                    <th> Title</th>
+                    <th> Description</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                  </tr>
+                </tbody>
+              </table>
           </div>
         </div>
       </div>
