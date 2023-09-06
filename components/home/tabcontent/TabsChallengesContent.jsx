@@ -36,8 +36,6 @@ function TabsChallengesContent({ getCategories, domain, brandChallenges }) {
   ];
 
   const initialData = brandChallenges.data.challenges;
-  
-
   const [searchText, setSearchText] = useState('');
   const [data, setData] = useState(initialData);
 
@@ -59,27 +57,21 @@ function TabsChallengesContent({ getCategories, domain, brandChallenges }) {
           var slug = row[3];
           return '<a href="https://www.contrib.com/challenge/details/'+id+'/'+slug+'" target="_blank" class="text-decoration-none">'+title+'</a>';
         },
-       
         "targets": 1
       },
-      
       {
-        
         "targets": 2
-      },        
-      {  
+      },
+      {
         "render": function ( data, type, row ) {
           var id = row[0];
-        
           var slug = data;
           return '<a href="https://www.contrib.com/challenge/details/'+id+'/'+slug+'" target="_blank" class="btn btn-sm btn-primary">View</a>';
         },
-
         "searchable": false,
         "targets":  3  
-
-      },    
-      ],       
+      },
+      ],
       "processing": true,
       "serverSide": true,
       "ajax":"https://www.contrib.com/brand/getchallengesbrand"
@@ -103,7 +95,7 @@ function TabsChallengesContent({ getCategories, domain, brandChallenges }) {
             </div>
           </div>
           <div className="m-portlet__body">
-              <table  id="tbl-challenges" className="table table-striped table-minimal-striped">
+              <table  id="tbl-challenges" className="table table-striped table-minimal-striped !tw-w-full">
                 <thead>
                   <tr>
                     <th> Id</th>
