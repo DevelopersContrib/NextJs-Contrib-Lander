@@ -104,7 +104,7 @@ function TabsChallengesContent({ getCategories, domain, brandChallenges }) {
                     <th> Id</th>
                     <th> Title</th>
                     <th> Description</th>
-                    <th>Action</th>
+                    <th width="10%">Action</th>
                   </tr>
                 </thead>
                 <tbody>
