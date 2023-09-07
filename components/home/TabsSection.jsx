@@ -32,7 +32,7 @@ const TabsSection = ({
 }) => {
   
   return (
-    <Tab.Container id="tabs-contrib-lander" defaultActiveKey="home">
+    <Tab.Container id="tabs-contrib-lander" defaultActiveKey="challenges">
       <Row>
         <Col xl={12} className='mb-3'>
           <Nav variant="tabs" className='custom-nav-framework'>

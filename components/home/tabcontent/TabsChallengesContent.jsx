@@ -5,6 +5,9 @@ import TasksComponent from '../component/TasksComponent';
 import DataTable from 'datatables.net-dt';
 import { useEffect } from "react"
 import Paper from "@mui/material/Paper";
+import 'datatables.net-bs5/css/dataTables.bootstrap5.min.css'; // DataTables Bootstrap 5 CSS
+import 'datatables.net-bs5/js/dataTables.bootstrap5.min.js'; // DataTables Bootstrap 5 JavaScript
+
 
 function TabsChallengesContent({ getCategories, domain, brandChallenges }) {
   const columns = [
@@ -94,8 +97,8 @@ function TabsChallengesContent({ getCategories, domain, brandChallenges }) {
               </div>
             </div>
           </div>
-          <div className="m-portlet__body">
-              <table  id="tbl-challenges" className="table table-striped table-minimal-striped !tw-w-full">
+          <div className="m-portlet__body tw-relative">
+              <table  id="tbl-challenges" className="table table-striped table-minimal-striped !tw-w-full" style={{width: '100%'}}>
                 <thead>
                   <tr>
                     <th> Id</th>
