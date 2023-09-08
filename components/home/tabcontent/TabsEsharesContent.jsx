@@ -1,28 +1,40 @@
 "use client"
 import { FaSquarePollVertical, FaChartLine } from "react-icons/fa6"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import Chart from 'chart.js/auto';
-const TabsEsharesContent = ({earnings,analytics}) => {
+const TabsEsharesContent = ({earnings,analytics, chart}) => {
  
+  const [chartData, setChartData] = useState(null);
+
   useEffect(() => {
-    var ctx = document.getElementById('myChart');
-    var myChart = new Chart(ctx, {
-      type: 'pie',
-      data: {
-        labels: [
-          'Red',
-          'Blue',
-          'Yellow'
+    // Assuming 'analytics' contains your API response
+    if (chart && chart.success) {
+      const data = chart.data[0].eshares_ep;
+      const labels = data.map((item) => item.label);
+      const values = data.map((item) => item.data);
+
+      setChartData({
+        labels: labels,
+        datasets: [
+          {
+            data: values,
+           
+          },
         ],
-        datasets: [{
-          label: 'My First Dataset',
-          data: [300, 50, 100],
-         
-          hoverOffset: 4
-        }]
-      }
-    });
-  }, [])
+      });
+    }
+  }, [chart]);
+
+  useEffect(() => {
+    if (chartData) {
+      var ctx = document.getElementById("myChart");
+      var myChart = new Chart(ctx, {
+        type: "pie",
+        data: chartData,
+      });
+    }
+  }, [chartData]);
+
   return (
     <>
       <div className="row">

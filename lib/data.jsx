@@ -179,7 +179,7 @@ export async function getAnalytics() {
     return res.json();
 }
 
-export async function getBrandChard() {
+export async function getBrandChart() {
     const domain = getDomain();
     const url = process.env.GET_BRAND_CHART+`&domain=${domain}`
     const res = await fetch(url);

@@ -28,7 +28,8 @@ const TabsSection = ({
   teamList,
   brandChallenges,
   earnings,
-  analytics
+  analytics,
+  chart
 }) => {
   
   return (
@@ -104,6 +105,7 @@ const TabsSection = ({
               <TabsEsharesContent 
                 earnings={earnings}
                 analytics={analytics}
+                chart={chart}
               />
             </Tab.Pane>
             <Tab.Pane eventKey="team" >

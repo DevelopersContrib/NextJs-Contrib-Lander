@@ -2,6 +2,7 @@ import TabsSection from "@/components/home/TabsSection"
 import HeaderWidget from "@/components/includes/HeaderWidget"
 import Footer from "@/components/includes/Footer"
 import Navigation from "@/components/includes/Navigation"
+import Form from "@/components/includes/Form"
 import StatSection from "@/components/home/component/StatSection"
 import { 
   getDomain,
@@ -17,7 +18,8 @@ import {
   getTeam,
   getBrandChallenges,
   getBrandEarnings,
-  getAnalytics
+  getAnalytics,
+  getBrandChart
 } from '@/lib/data';
 
 export default async function Home() {
@@ -38,6 +40,7 @@ export default async function Home() {
   const brandChallenges = await getBrandChallenges();
   const earnings = await getBrandEarnings();
   const analytics = await getAnalytics();
+  const chart = await getBrandChart();
 
   return (
     <>
@@ -51,19 +54,7 @@ export default async function Home() {
                 Join a vibrant community of developers, influencers, and entrepreneurs on {domain}, all using the versatile CONTRIB token to power their token economies!
               </h1>
             </div>
-            <div className="col-xl-12 mb-5">
-              <div className="custom-form-signup xl:tw-max-w-[750px] xl:tw-mx-auto">
-                <input
-                  autoComplete="off"
-                  type="text"
-                  name="email"
-                  className="form-control"
-                  placeholder="Enter your email addresss..." />
-                <button className="btn btn-dark">
-                  Join {domain}
-                </button>
-              </div>
-            </div>
+            <Form domain={domain} />
             <StatSection domainStats={status}/>
             
             <div className="col-xl-12">
@@ -83,6 +74,7 @@ export default async function Home() {
               brandChallenges={brandChallenges}
               earnings={earnings}
               analytics={analytics}
+              chart={chart}
               />
             </div>
           </div>
