@@ -88,8 +88,8 @@ function TopForm({domain, setSuccess}) {
                   Join {domain}
                 </button>
               </div>
-            {errors.validate? (<ErrorBlock msg={errors.emailError} />): null}
-            {emailExist? (<ErrorBlock msg={emailExist} />): null}
+            {errors.validate? (<ErrorBlock msg={errors.emailError} errrorForm="topForm"/>): null}
+            {emailExist? (<ErrorBlock msg={emailExist} errrorForm="topForm"/>): null}
         </div>
     )
 }

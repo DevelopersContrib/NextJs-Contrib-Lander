@@ -93,7 +93,7 @@ const TabsSection = ({
               />
             </Tab.Pane>
             <Tab.Pane eventKey="offers">
-              <TabsOfferContent/>
+              <TabsOfferContent domain={domain}/>
             </Tab.Pane>
             <Tab.Pane eventKey="challenges">
               <TabsChallengesContent domain={domain} getCategories={getCategories} brandChallenges={brandChallenges}/>

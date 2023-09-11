@@ -54,7 +54,7 @@ export default async function Home() {
                 Join a vibrant community of developers, influencers, and entrepreneurs on {domain}, all using the versatile CONTRIB token to power their token economies!
               </h1>
             </div>
-            <Form domain={domain} />
+            <Form domain={domain} formtype="topForm"/>
             <StatSection domainStats={status}/>
             
             <div className="col-xl-12">
